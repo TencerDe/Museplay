@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Song</title>
+</head>
+<body>
+    <h1>Now Playing: {{ song.title }}</h1>
+    <p>Artist: {{ song.artist }}</p>
+    <audio controls>
+        <source src="{{ song.file.url }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <br>
+    <a href="{% url 'song_list' %}">Back to Song List</a>
+</body>
+</html>
