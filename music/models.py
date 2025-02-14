@@ -12,7 +12,7 @@ class Song(models.Model):
     file = models.FileField(upload_to='songs/')
 
     def __str__(self):
-        return self.title
+        return f"{self.title}-{self.artist}"
     
 class UserProfile(AbstractUser):
     pass
