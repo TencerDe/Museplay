@@ -121,6 +121,10 @@ STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+if DEBUG:
+    import mimetypes
+    mimetypes.add_type("audio/mpeg", ".mp3", True)
+
 AUTH_USER_MODEL = 'music.UserProfile'
 
 

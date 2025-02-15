@@ -4,42 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .song-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .song {
-            margin-bottom: 10px;
-        }
-        audio {
-            width: 300px;
-        }
-    </style>
 </head>
 <body>
     <h1>Music Player</h1>
 
-    {% if user.is_authenticated %}
-        <p>Welcome, {{ user.username }} | <a href="{% url 'logout' %}">Logout</a></p>
-    {% else %}
-        <a href="{% url 'login' %}">Login</a> | <a href="{% url 'signup' %}">Signup</a>
-    {% endif %}
-
     <div class="song-container">
         {% for song in songs %}
-            <div class="song">
-                <p><strong>{{ song.title }}</strong> - {{ song.artist }}</p>
-                <audio controls>
-                    <source src="{{ song.audio_file.url }}" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+        <audio controls>
+            <source src="{{ song.audio_file.url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
             </div>
         {% empty %}
             <p>No songs available.</p>
